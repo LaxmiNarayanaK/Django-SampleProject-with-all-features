@@ -15,13 +15,13 @@ def index(request):
     return render(request, "index.html", {'dests': dests})
 
 class DestinationList(generics.ListCreateAPIView):
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [permissions.IsAdminUser]  # CAN BE USED FOR BOTH JWT AND TOKEN AUTHENTICATION(NRML LOGIN)
     queryset = Destination.objects.all()
     serializer_class = DestinationSerializer
 
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]  # CAN BE USED FOR BOTH JWT AND TOKEN AUTHENTICATION(NRML LOGIN)
     queryset = Destination.objects.all()
     serializer_class = DestinationSerializer
 

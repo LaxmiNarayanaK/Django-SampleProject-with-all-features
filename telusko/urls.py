@@ -23,8 +23,9 @@ urlpatterns = [
     path('', include('travello.urls')),
     path('admin/', admin.site.urls),
     path('accounts/',include('accounts.urls')),
-    path('api/token/',jwt_views.TokenObtainPairView.as_view(),name ='token_obtain_pair'),
-    path('api/token/refresh/',jwt_views.TokenRefreshView.as_view(),name ='token_refresh'),
+    path('api/token/',jwt_views.TokenObtainPairView.as_view(),name ='token_obtain_pair'),  #Get JWT TOKEN WORKS FOR ONLY SUPERUSER
+    path('api/token/refresh/',jwt_views.TokenRefreshView.as_view(),name ='token_refresh'),    #REFRESH JWT TOKEN WORKS FOR ONLY SUPERUSER
+    path('api-auth/', include('rest_framework.urls')),  #GET LOGIN OPTION AT LEFT TOP API
     path('scrap/',include('scrap.urls'))
 ]
 
